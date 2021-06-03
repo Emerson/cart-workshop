@@ -1,5 +1,6 @@
 import makeServer from "../server";
 import Cart from '../src/cart';
+import MemoryStorage from "../src/memory-storage";
 
 let server;
 
@@ -48,5 +49,10 @@ describe("Cart", ()=> {
     let cart = new Cart();
     cart.addItem({id: "1", quantity: 2, price: 1000});
     expect(cart.total).toEqual(2000);
+  });
+
+  test("Cart accepts memory storage", async () => {
+    let cart = new Cart(MemoryStorage);
+    expect(cart).toBeTruthy();
   });
 });
