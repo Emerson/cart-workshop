@@ -1,19 +1,32 @@
+async function getItems(storage) {
+  let items = await storage.items;
+  return items;
+}
+
+async function calculateTotal(storage) {
+  let items = await storage.items;
+  return items.reduce((accumulator, item) => {
+    return accumulator + (item.price * item.quantity);
+  }, 0);
+}
+
 export default class Cart {
-  constructor() {
-    this._items = [];
+
+  constructor(storage) {
+    this.storage = storage;
   }
 
   get items() {
-    return this._items;
+    return getItems(this.storage);
   }
 
   get total() {
-    return this.items.reduce((accumulator, item) => {
-      return accumulator + (item.price * item.quantity);
-    }, 0);
+    return calculateTotal(this.storage);
   }
 
-  addItem(item) {
-    this._items.push(item);
+  async addItem(item) {
+    let items = await this.storage.add(item);
+    return items;
   }
+
 }
