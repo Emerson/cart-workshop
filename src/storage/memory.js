@@ -1,4 +1,4 @@
-import Storage from './storage';
+import Storage from "./storage";
 
 export default class MemoryStorage extends Storage {
 

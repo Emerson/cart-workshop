@@ -20,6 +20,12 @@ function routes() {
     schema.db.items.remove(id);
     return schema.db.items;
   });
+
+  this.post("/clear", (schema, request) => {
+    schema.db.emptyData();
+    return schema.db.items;
+  });
+
 }
 
 

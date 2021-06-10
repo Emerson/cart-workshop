@@ -1,4 +1,4 @@
-import MemoryStorage from '../src/memory-storage';
+import MemoryStorage from "../../src/storage/memory";
 
 describe("MemoryStorage", ()=> {
 
@@ -12,4 +12,5 @@ describe("MemoryStorage", ()=> {
     let items = await storage.items;
     expect(items.length).toEqual(0);
   });
+
 });

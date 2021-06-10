@@ -11,4 +11,5 @@ export default class Storage {
   clear() {
     throw new Error("Storage should not implment `clear` directly");
   }
+
 }
